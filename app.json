@@ -1,7 +1,7 @@
 {
   "name": "Piazza bot",
   "description": "GroupMe bot to give Piazza links",
-  "repository": "https://github.com/petemcgrath/cool-guy-bot",
+  "repository": "https://github.com/Jules-Bertholet/groupme-bot-piazza",
   "logo": "https://piazza.com/favicon.ico",
   "keywords": []
 }
