@@ -1,7 +1,7 @@
 {
-  "name": "Cool guy bot",
-  "description": "Basic Groupme Bot written in Node",
+  "name": "Piazza bot",
+  "description": "GroupMe bot to give Piazza links",
   "repository": "https://github.com/petemcgrath/cool-guy-bot",
-  "logo": "http://www.tailgate365.com/wp-content/uploads/2011/06/tom-hanks-906.jpg",
+  "logo": "https://piazza.com/favicon.ico",
   "keywords": []
 }

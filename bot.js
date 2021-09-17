@@ -1,27 +1,35 @@
-var HTTPS = require('https');
-var cool = require('cool-ascii-faces');
+let HTTPS = require('https');
 
-var botID = process.env.BOT_ID;
+const botID = process.env.BOT_ID;
+const classID = process.env.PIAZZA_CLASS_ID;
 
 function respond() {
-  var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\/cool guy$/;
+  let request = JSON.parse(this.req.chunks[0]),
+      botRegex = /(?:🍕|\u{fffd}|piazza)\s*@(\d+)/iu;
 
-  if(request.text && botRegex.test(request.text)) {
+  let match = null;
+  if (request.text) {
+    const match_obj = request.text.match(botRegex);
+    if (match_obj) {
+      match = match_obj[1];
+    }
+  }
+
+  if (request.text && match) {
     this.res.writeHead(200);
-    postMessage();
+    postMessage(match);
     this.res.end();
   } else {
-    console.log("don't care");
+    console.log(request.text);
     this.res.writeHead(200);
     this.res.end();
   }
 }
 
-function postMessage() {
-  var botResponse, options, body, botReq;
+function postMessage(match) {
+  let botResponse, options, body, botReq;
 
-  botResponse = cool();
+  botResponse = `https://piazza.com/class/${classID}?cid=${match}`;
 
   options = {
     hostname: 'api.groupme.com',
